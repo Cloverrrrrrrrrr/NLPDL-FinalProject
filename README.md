@@ -81,3 +81,20 @@ python contrastive/train.py --config contrastive/configs/lora.yaml
 
 ## Error-RAG
 
+## Inference
+use the following command for running batch inference and calculate the accuracies for MATH dataset:
+```
+python inference/inference.py --input_file test_data/math_test.jsonl \
+    --output_file full.jsonl \
+    --model_path contrastive/full/checkpoint \
+    --batch_size 64
+```
+if using LoRA adapter:
+```
+ython inference/inference.py --input_file test_data/math_test.jsonl \
+    --output_file full.jsonl \
+    --model_path meta-llama/Meta-Llama-3-8B-Instruct \
+    --use_lora \
+    --lora_path contrastive/lora/checkpoint \
+    --batch_size 64
+```
