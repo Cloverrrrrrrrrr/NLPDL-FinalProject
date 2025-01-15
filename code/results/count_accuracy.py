@@ -72,9 +72,11 @@ def calculate_accuracy2(jsonl_file):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--output_path', type=str, required=True)
+    parser.add_argument('--input_path', type=str, required=True)
     args = parser.parse_args()
     output_path = args.output_path
+    input_path = args.input_path
     
-    accuracy, correct_count, total_count = calculate_accuracy('/ceph/home/yangshu/lema/final_project/project/rag_error.jsonl', output_path)
+    accuracy, correct_count, total_count = calculate_accuracy(input_path, output_path)
     print(f'Accuracy: {accuracy:.2f}% ({correct_count}/{total_count})')
     
