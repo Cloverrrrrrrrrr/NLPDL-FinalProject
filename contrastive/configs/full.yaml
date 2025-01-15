@@ -1,0 +1,12 @@
+model_name: meta-llama/Meta-Llama-3-8B-Instruct
+data_path: train_data/data/llama_error.jsonl
+output_dir: contrastive/full
+learning_rate: 0.00001
+per_device_train_batch_size: 1
+num_train_epochs: 2
+weight_decay: 0.01
+optim: adamw_torch_4bit
+fp16: False
+bf16: True
+gradient_accumulation_steps: 4
+use_lora: False
