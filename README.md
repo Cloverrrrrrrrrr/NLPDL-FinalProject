@@ -91,10 +91,35 @@ python inference/inference.py --input_file test_data/math_test.jsonl \
 ```
 if using LoRA adapter:
 ```
-ython inference/inference.py --input_file test_data/math_test.jsonl \
+python inference/inference.py --input_file test_data/math_test.jsonl \
     --output_file full.jsonl \
     --model_path meta-llama/Meta-Llama-3-8B-Instruct \
     --use_lora \
     --lora_path contrastive/lora/checkpoint \
     --batch_size 64
 ```
+To run inference with RAG:
+```
+python inference/inference_rag_new.py \
+    --index_path yourindex.index \
+    --documents_path data/documents.json \
+    --finetune False \
+    --output_file your_output_path.jsonl \
+    --folder_path test_data/math_test.jsonl \
+    --model_path meta-llama/Meta-Llama-3-8B-Instruct
+```
+To calculate the accuracy from a .jsonl file:
+```
+python results/count_accuracy.py\
+    --input_path your_input_path.jsonl
+```
+To create PCA images from faiss index and its document:
+```
+python results/pca.py\
+    --index_path your_index_path.index\
+    --documents_path your_documents_path.jsonl\
+    --output_file your_output_file.png
+```
+To finetune BERT model using triple loss:
+```
+python 
