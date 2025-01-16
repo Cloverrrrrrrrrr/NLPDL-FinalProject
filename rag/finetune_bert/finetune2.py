@@ -43,7 +43,7 @@ def load_data_from_jsonl(path):
     labels = []
     for line in data:
         line = json.loads(line)
-        texts.append(line["prompt"])
+        texts.append(line["problem"])
         labels.append(line["type"])
     return texts, labels
 
