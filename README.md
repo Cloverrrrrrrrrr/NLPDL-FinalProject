@@ -122,4 +122,25 @@ python results/pca.py\
 ```
 To finetune BERT model using triple loss:
 ```
-python 
+python rag/finetune_bert/finetune.py\
+    --query_data your_query_data_path.jsonl\
+    --doc_data your_doc_data.jsonl\
+    --model_path tbs17/MathBERT\
+    --output_dir your_output_dir
+```
+To finetune BERT model using Cluster loss:
+```
+python rag/finetune_bert/finetune2.py\
+    --data_path your_data_path.jsonl\
+    --model_path tbs17/MathBERT\
+    --save_path your_output_dir
+```
+To create .index using faiss:
+```
+python rag/faiss/creatingfaiss.py
+    --model_path your_model_path\
+    --state_dict_path your_statedict_path\
+    --output_file your_output_file\
+    --document_path your_document_path.jsonl
+```
+    
