@@ -79,8 +79,6 @@ then run the following command to start training:
 python contrastive/train.py --config contrastive/configs/lora.yaml
 ```
 
-## Error-RAG
-
 ## Inference
 use the following command for running batch inference and calculate the accuracies for MATH dataset:
 ```
@@ -98,11 +96,13 @@ python inference/inference.py --input_file test_data/math_test.jsonl \
     --lora_path contrastive/lora/checkpoint \
     --batch_size 64
 ```
+
+## Error-RAG
 To run inference with RAG:
 ```
 python inference/inference_rag_new.py \
     --index_path yourindex.index \
-    --documents_path data/documents.json \
+    --documents_path your_documents.jsonl \
     --finetune False \
     --output_file your_output_path.jsonl \
     --folder_path test_data/math_test.jsonl \
