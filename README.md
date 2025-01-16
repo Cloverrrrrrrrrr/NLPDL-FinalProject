@@ -108,6 +108,14 @@ python inference/inference_rag_new.py \
     --folder_path test_data/math_test.jsonl \
     --model_path meta-llama/Meta-Llama-3-8B-Instruct
 ```
+To create the index of document embeddings using faiss:
+```
+python rag/faiss/creatingfaiss.py
+    --model_path your_model_path\
+    --state_dict_path your_statedict_path\
+    --output_file your_output_file\
+    --document_path your_document_path.jsonl
+```
 To calculate the accuracy from a .jsonl file:
 ```
 python results/count_accuracy.py\
@@ -135,12 +143,5 @@ python rag/finetune_bert/finetune2.py\
     --model_path tbs17/MathBERT\
     --save_path your_output_dir
 ```
-To create .index using faiss:
-```
-python rag/faiss/creatingfaiss.py
-    --model_path your_model_path\
-    --state_dict_path your_statedict_path\
-    --output_file your_output_file\
-    --document_path your_document_path.jsonl
-```
+
     
