@@ -110,7 +110,7 @@ if __name__ == "__main__":
         docs_negative.append(raw_docs[cnt % len(raw_docs)])
         cnt += 1
 
-    queries = [query['prompt'] for query in queries_raw]
+    queries = [query['problem'] for query in queries_raw]
     docs_positive = [doc['problem'] for doc in docs_positive]
     docs_negative = [doc['problem'] for doc in docs_negative]
 
