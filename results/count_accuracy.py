@@ -1,7 +1,7 @@
 import json
 import argparse 
 
-def is_correct(correct_answer, predicted_answer, output_path):
+def is_correct(correct_answer, predicted_answer):
     # 忽略大小写
     correct_answer = correct_answer.lower()
     predicted_answer = predicted_answer.lower()
@@ -24,7 +24,7 @@ def is_correct(correct_answer, predicted_answer, output_path):
 
     return correct_answer in predicted_answer
 
-def calculate_accuracy(jsonl_file, output_path):
+def calculate_accuracy(jsonl_file):
     total = 0
     correct = 0
     
@@ -34,7 +34,7 @@ def calculate_accuracy(jsonl_file, output_path):
             correct_answer = data.get('correct_answer', '')
             predicted_answer = data.get('predicted_answer', '')
 
-            if is_correct(correct_answer, predicted_answer, output_path):
+            if is_correct(correct_answer, predicted_answer):
                 correct += 1
             
             total += 1
@@ -71,12 +71,10 @@ def calculate_accuracy2(jsonl_file):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output_path', type=str, required=True)
     parser.add_argument('--input_path', type=str, required=True)
     args = parser.parse_args()
-    output_path = args.output_path
     input_path = args.input_path
     
-    accuracy, correct_count, total_count = calculate_accuracy(input_path, output_path)
+    accuracy, correct_count, total_count = calculate_accuracy(input_path)
     print(f'Accuracy: {accuracy:.2f}% ({correct_count}/{total_count})')
     
